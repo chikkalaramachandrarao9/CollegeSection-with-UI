@@ -35,7 +35,9 @@ dependencies:
   carousel_slider: ^2.3.1
   photo_gallery: ^0.3.0
   permission_handler: ^5.0.1+1
-  flutter_qr_bar_scanner: ^1.0.1
+ # flutter_qr_bar_scanner: ^1.0.1
+  barcode_scan: ^2.0.1
+  qr_flutter: ^3.2.0
    
 dev_dependencies:
   flutter_test:

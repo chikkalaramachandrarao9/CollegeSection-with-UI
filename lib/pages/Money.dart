@@ -1,9 +1,10 @@
 import 'dart:ui';
 
-import '../animations/PaymentPopUpAnimation.dart';
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_qr_bar_scanner/qr_bar_scanner_camera.dart';
-import 'package:flutter_qr_bar_scanner/flutter_qr_bar_scanner.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+import '../animations/PaymentPopUpAnimation.dart';
 
 class Money extends StatefulWidget {
   static final routeName = "/Money";
@@ -12,6 +13,8 @@ class Money extends StatefulWidget {
 }
 
 class _MoneyState extends State<Money> {
+  String qrData = "Its me simba";
+  String qrCodeResult = "Not Yet Scanned";
   List<String> mainList = ['Lend', 'Summary', 'Borrow'];
   var activeIndex = 2;
 
@@ -196,9 +199,14 @@ class _MoneyState extends State<Money> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.3,
                 decoration: BoxDecoration(
-                  //   color: Colors.red,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/qr_code.png')),
+                    //   color: Colors.red,
+                    // image: DecorationImage(
+                    //     image: AssetImage('assets/images/qr_code.png')),
+
+                    ),
+                child: QrImage(
+                  //plce where the QR Image will be shown
+                  data: qrData,
                 ),
               ),
               Container(
@@ -464,12 +472,20 @@ class _MoneyState extends State<Money> {
                       child: Text(_qrInfo),
                     ),
 
-              Container(
-                height: MediaQuery.of(context).size.height * 0.25,
-                decoration: BoxDecoration(
-                  //   color: Colors.red,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/scanner_money.png')),
+              GestureDetector(
+                onTap: () async {
+                  String codeSanner = await BarcodeScanner.scan();
+                  setState(() {
+                    qrCodeResult = codeSanner;
+                  });
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  decoration: BoxDecoration(
+                    //   color: Colors.red,
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/scanner_money.png')),
+                  ),
                 ),
               ),
               Container(
@@ -479,6 +495,13 @@ class _MoneyState extends State<Money> {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        Text(
+                          qrCodeResult,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                         Text('Total amout borrowed'),
                         Text('₹1583'),
                       ]),
