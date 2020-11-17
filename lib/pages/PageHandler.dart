@@ -421,8 +421,10 @@ class _PageHandlerState extends State<PageHandler>
                                     : currentTab == 0
                                         ? Icon(Icons.home,
                                             size: 30, color: Color(0xFF0CB5BB))
-                                        : Icon(Icons.home_outlined,
-                                            size: 30, color: Colors.black)),
+                                        : Icon(Icons.home,
+                                            size: 30,
+                                            color: Colors
+                                                .black)), //please add outlined icon in the icon widget
                             GestureDetector(
                                 onTap: () {
                                   //if (!_hyberActivated)
@@ -443,8 +445,10 @@ class _PageHandlerState extends State<PageHandler>
                                     : currentTab == 1
                                         ? Icon(Icons.account_balance,
                                             size: 30, color: Color(0xFF0CB5BB))
-                                        : Icon(Icons.account_balance_outlined,
-                                            size: 30, color: Colors.black)),
+                                        : Icon(Icons.account_balance,
+                                            size: 30,
+                                            color: Colors
+                                                .black)), //please add outlined icon in the icon widget
                             SizedBox.shrink(),
                             GestureDetector(
                                 onTap: () {
@@ -465,8 +469,10 @@ class _PageHandlerState extends State<PageHandler>
                                     : currentTab == 2
                                         ? Icon(Icons.language,
                                             size: 30, color: Color(0xFF0CB5BB))
-                                        : Icon(Icons.language_outlined,
-                                            size: 30, color: Colors.black)),
+                                        : Icon(Icons.language,
+                                            size: 30,
+                                            color: Colors
+                                                .black)), //please add outlined icon in the icon widget
                             GestureDetector(
                                 onTap: () {
                                   // if (!_hyberActivated)
@@ -486,8 +492,10 @@ class _PageHandlerState extends State<PageHandler>
                                     : currentTab == 3
                                         ? Icon(Icons.account_circle,
                                             size: 30, color: Color(0xFF0CB5BB))
-                                        : Icon(Icons.account_circle_outlined,
-                                            size: 30, color: Colors.black)),
+                                        : Icon(Icons.account_circle,
+                                            size: 30,
+                                            color: Colors
+                                                .black)), // please add outlined icon in the icon widget
                           ],
                         ),
                       ),
