@@ -44,7 +44,7 @@ class _BorrowState extends State<Borrow> {
                   child: QrImage(
                     //plce where the QR Image will be shown
                     //  data: widget.uid,
-                    data: 'aVfgckVxKJbgutmLFJdWEn22ALr2',
+                    data: widget.uid,
                   ),
                 ),
               ),
