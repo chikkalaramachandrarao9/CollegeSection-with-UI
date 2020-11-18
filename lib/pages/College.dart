@@ -1,10 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:yibe_final_ui/pages/Money.dart';
-import 'package:yibe_final_ui/pages/Notification.dart';
 import 'package:yibe_final_ui/pages/Message.dart';
+import 'package:yibe_final_ui/pages/Money/MoneyMatters.dart';
+import 'package:yibe_final_ui/pages/Notification.dart';
 import 'package:yibe_final_ui/pages/college_section_page.dart';
+
 import 'Preferences.dart';
 
 class College extends StatefulWidget {
@@ -234,7 +235,8 @@ class _CollegeState extends State<College> {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return Money();
+                              return MoneyMatters(
+                                  "aN0NOsFLWoO4snOJBgi8oI89j2r1");
                             }));
                           },
                           child: Container(

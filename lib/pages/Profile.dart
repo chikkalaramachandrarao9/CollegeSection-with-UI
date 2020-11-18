@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'Gallery.dart';
+import 'Incircle.dart';
 
 double screenWidth;
 
@@ -181,26 +183,34 @@ class _ProfileState extends State<Profile> {
 
               SizedBox(height: 8.0),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Column(
-                  children: [
-                    Text(
-                      '450',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 20.0,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.w400,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Incircle();
+                    }));
+                  },
+                  child: Column(
+                    children: [
+                      Text(
+                        '450',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 20.0,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Incircle',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 10.0,
-                        color: Colors.grey,
+                      Text(
+                        'Incircle',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 10.0,
+                          color: Colors.grey,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 SizedBox(width: 20),
                 Column(
@@ -237,7 +247,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     Text(
-                      'Incircle',
+                      'Posts',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 10.0,
@@ -259,7 +269,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     Text(
-                      'Following',
+                      'Musings',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 10.0,

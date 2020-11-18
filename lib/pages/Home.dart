@@ -2,11 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'Notification.dart';
-import 'Message.dart';
-import 'Message.dart';
 
-import 'PageHandler.dart';
+import 'Comments.dart';
+import 'Message.dart';
+import 'Notification.dart';
 
 double screenWidth;
 double screenHeight;
@@ -14,8 +13,8 @@ bool isliked1 = false, isliked2 = false, isliked3 = false;
 
 class Home extends StatefulWidget {
   static final routeName = "/Home";
-  Function hiberPopUp;
-  bool all, friends, closeFriends, aqua, tranding;
+  final Function hiberPopUp;
+  final bool all, friends, closeFriends, aqua, tranding;
   Home(
       {this.hiberPopUp,
       this.all,
@@ -37,7 +36,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // TODO: implement initState
     print("init");
 
     if (widget.all == null) {
@@ -227,7 +225,7 @@ class _HomeState extends State<Home> {
 }
 
 class PostTile extends StatefulWidget {
-  String likeCount;
+  final String likeCount;
 
   var user;
   PostTile({this.likeCount, this.user});
@@ -340,7 +338,15 @@ class _PostTileState extends State<PostTile> {
                   style: TextStyle(fontSize: 12),
                 )),
             Spacer(),
-            SvgPicture.asset('assets/images/message_icon_homePage.svg'),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Comments();
+                }));
+              },
+              child:
+                  SvgPicture.asset('assets/images/message_icon_homePage.svg'),
+            ),
             SizedBox(width: 15.0),
             SizedBox(width: 15.0),
             SvgPicture.asset('assets/images/share_logo.svg'),
