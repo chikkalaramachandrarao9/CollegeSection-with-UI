@@ -1,0 +1,155 @@
+{
+  "project_info": {
+    "project_number": "232415340897",
+    "firebase_url": "https://college-section.firebaseio.com",
+    "project_id": "college-section",
+    "storage_bucket": "college-section.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232415340897:android:89324d223414ea7ce77d20",
+        "android_client_info": {
+          "package_name": "com.example.carousel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAZHRiDgSvzndUxT1V4fmmvEfVO8MFAF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "232415340897-6a8ptea3imgpeaiu9mlfshfvm66q1g3h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sanjayram.collegesection"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232415340897:android:0e53e8819167175de77d20",
+        "android_client_info": {
+          "package_name": "com.example.yibe_final_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAZHRiDgSvzndUxT1V4fmmvEfVO8MFAF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "232415340897-6a8ptea3imgpeaiu9mlfshfvm66q1g3h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sanjayram.collegesection"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232415340897:android:27021953b6b00487e77d20",
+        "android_client_info": {
+          "package_name": "com.sanjayram.collegesection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAZHRiDgSvzndUxT1V4fmmvEfVO8MFAF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "232415340897-6a8ptea3imgpeaiu9mlfshfvm66q1g3h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sanjayram.collegesection"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232415340897:android:1b527b5772f20414e77d20",
+        "android_client_info": {
+          "package_name": "com.sanjayram.yibeadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAZHRiDgSvzndUxT1V4fmmvEfVO8MFAF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232415340897-b81dajctv0a6djn33uqe49n83i94m71t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "232415340897-6a8ptea3imgpeaiu9mlfshfvm66q1g3h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sanjayram.collegesection"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
