@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:yibe_final_ui/models/event.dart';
 import 'package:yibe_final_ui/services/eventdatabase.dart';
-
+import 'package:yibe_final_ui/models/Activity.dart';
+import 'package:yibe_final_ui/services/activity_database.dart';
 import '../widget/card.dart';
 import 'PageHandler.dart';
 
@@ -32,6 +33,7 @@ class _CollegeSectionPageState extends State<CollegeSectionPage> {
   bool activeActivity;
   bool activeEvents;
   bool activeGrowth;
+  int activeType = 0;
 
   static const List<Text> sublistActivity = [
     Text(
@@ -357,6 +359,7 @@ class _CollegeSectionPageState extends State<CollegeSectionPage> {
                               return GestureDetector(
                                 onTap: () {
                                   _crouselController.nextPage();
+                                  activeType = 0;
                                   print('tap');
                                   //   print(index);
                                   //    buttonCarouselController.jumpToPage(1);
@@ -415,6 +418,8 @@ class _CollegeSectionPageState extends State<CollegeSectionPage> {
                                       onPressed: () {
                                         setState(() {
                                           isVisible = !isVisible;
+                                          activeType = index;
+                                          print(index);
                                         });
                                       },
                                       child: item);
@@ -513,65 +518,132 @@ class _CollegeSectionPageState extends State<CollegeSectionPage> {
                         ),
                       ],
                     ),
-                    StreamBuilder<List<Event>>(
-                        stream: EventDatabaseService().getEvents(0),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
-                              itemCount: snapshot.data.length,
-                              physics: NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemBuilder: (BuildContext context, int index) {
-                                return StreamBuilder<EventDetails>(
-                                    stream: EventDatabaseService()
-                                        .getEventDetails(
-                                            snapshot.data[index].eventId),
-                                    builder: (context, snapshot) {
-                                      if (snapshot.hasData) {
-                                        return Visibility(
-                                          visible: activeActivity,
-                                          child: BaseCard(
-                                            type: 1,
-                                            pathOfimg:
-                                                'assets/images/activity_card.png',
-                                            title: snapshot.data.eventName,
-                                            totalNoofparticipation: 100,
-                                            noOfPeopleparticipated: 10,
-                                            tags: [
-                                              'rich',
-                                              'computer Engineer',
-                                              'hello'
-                                            ],
-//                                        date: '31st Mar \'20',
-                                            date: snapshot.data.dateOfEvent,
-                                            time: snapshot.data.timeOfEvent,
-                                            location: snapshot.data.address,
-                                            organiser: 'Delhi Public School',
-                                            price: 500,
-                                            jobTitle: 'Job Title',
-                                            jobDuration: '12 weeks',
-                                            projectDetail: [
-                                              'a',
-                                              'b',
-                                              'c',
-                                              'd',
-                                              'e',
-                                              'f'
-                                            ],
-                                            organiserId: 'abc',
-                                          ),
-                                        );
-                                      } else {
-                                        return Container();
-                                      }
-                                    });
-                              },
-                            );
-                          } else {
-                            return Container();
-                          }
-                        }),
+                    activeActivity
+                        ? StreamBuilder<List<Activity>>(
+                            stream: ActivityDatabaseService()
+                                .getActivities(activeType),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return ListView.builder(
+                                  itemCount: snapshot.data.length,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return StreamBuilder<ActivityDetails>(
+                                        stream: ActivityDatabaseService()
+                                            .getActivityDetails(
+                                                snapshot.data[index].activityId,
+                                                snapshot
+                                                    .data[index].activityType),
+                                        builder: (context, snapshot) {
+                                          if (snapshot.hasData) {
+                                            return Visibility(
+                                              visible: activeActivity,
+                                              child: BaseCard(
+                                                type: 1,
+                                                pathOfimg:
+                                                    'assets/images/activity_card.png',
+                                                title:
+                                                    snapshot.data.activityTitle,
+                                                totalNoofparticipation:
+                                                    snapshot.data.noOfPlayers,
+                                                noOfPeopleparticipated: 0,
+                                                tags: [
+                                                  'rich',
+                                                  'computer Engineer',
+                                                  'hello'
+                                                ],
+                                                date: '31st Mar \'20',
+                                                time: '5:00 PM',
+                                                location: 'location',
+                                                organiser: 'Rakesh',
+                                                price: 0,
+                                                jobTitle: 'Job Title',
+                                                jobDuration: '12 weeks',
+                                                projectDetail: [
+                                                  'a',
+                                                  'b',
+                                                  'c',
+                                                  'd',
+                                                  'e',
+                                                  'f'
+                                                ],
+                                                organiserId: 'abc',
+                                              ),
+                                            );
+                                          } else {
+                                            return Container();
+                                          }
+                                        });
+                                  },
+                                );
+                              } else {
+                                return Container();
+                              }
+                            })
+                        : StreamBuilder<List<Event>>(
+                            stream:
+                                EventDatabaseService().getEvents(activeType),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return ListView.builder(
+                                  itemCount: snapshot.data.length,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return StreamBuilder<EventDetails>(
+                                        stream: EventDatabaseService()
+                                            .getEventDetails(
+                                                snapshot.data[index].eventId),
+                                        builder: (context, snapshot) {
+                                          if (snapshot.hasData) {
+                                            return Visibility(
+                                              visible: activeEvents,
+                                              child: BaseCard(
+                                                type: 1,
+                                                pathOfimg:
+                                                    'assets/images/poolparty_events.png',
+                                                title: snapshot.data.eventName,
+                                                totalNoofparticipation: 100,
+                                                noOfPeopleparticipated: 10,
+                                                tags: [
+                                                  'rich',
+                                                  'computer Engineer',
+                                                  'hello'
+                                                ],
+                                                date: snapshot.data.dateOfEvent,
+                                                time: snapshot.data.timeOfEvent,
+                                                location: snapshot.data.address,
+                                                organiser:
+                                                    snapshot.data.address,
+                                                price: 500,
+                                                jobTitle: 'Job Title',
+                                                jobDuration: '12 weeks',
+                                                projectDetail: [
+                                                  'a',
+                                                  'b',
+                                                  'c',
+                                                  'd',
+                                                  'e',
+                                                  'f'
+                                                ],
+                                                organiserId: 'abc',
+                                              ),
+                                            );
+                                          } else {
+                                            return Container();
+                                          }
+                                        });
+                                  },
+                                );
+                              } else {
+                                return Container();
+                              }
+                            }),
 //                    ListView(
 //                      physics: NeverScrollableScrollPhysics(),
 //                      shrinkWrap: true,

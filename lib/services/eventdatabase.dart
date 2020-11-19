@@ -29,7 +29,7 @@ class EventDatabaseService {
           .map(_eventsFromSnapshots);
     } else {
       return eventCollection
-          .where('EventTy`pe', isEqualTo: EventTypes[type])
+          .where('EventType', isEqualTo: EventTypes[type])
           .orderBy('TimeOfRegistration', descending: true)
           .snapshots()
           .map(_eventsFromSnapshots);
