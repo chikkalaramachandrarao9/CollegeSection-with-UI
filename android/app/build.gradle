@@ -40,7 +40,11 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.yibe_final_ui"
+<<<<<<< HEAD
         minSdkVersion 28
+=======
+        minSdkVersion 16
+>>>>>>> 4271cdd59d711b159194825b5c78c0d1d66c88b2
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

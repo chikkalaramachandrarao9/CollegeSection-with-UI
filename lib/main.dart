@@ -1,12 +1,18 @@
+<<<<<<< HEAD
 import 'package:firebase_core/firebase_core.dart';
+=======
+>>>>>>> 4271cdd59d711b159194825b5c78c0d1d66c88b2
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:yibe_final_ui/pages/College.dart';
 import 'package:yibe_final_ui/pages/splash.dart';
 
 Future<void> main() async {
+<<<<<<< HEAD
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+=======
+>>>>>>> 4271cdd59d711b159194825b5c78c0d1d66c88b2
   runApp(MyApp());
 }
 
